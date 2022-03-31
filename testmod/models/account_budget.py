@@ -8,6 +8,7 @@ class CrossoveredBudgetLines(models.Model):
     practical_amount = fields.Monetary(
         compute='_compute_practical_amount', string='Practical Amount', help="Amount really earned/spent.", store=True)
     progress = fields.Float('Progress', compute='_compute_progress', store=True)
+    pcatestchange = fields.Float('Test new change', store=True)
 
     @api.depends('practical_amount', 'planned_amount')
     def _compute_progress(self):
